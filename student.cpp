@@ -6,15 +6,15 @@
 //constructur
 Student::Student(float inGPA, char* inName){
   gpa = inGPA;
-  name = new char[15];
-  strcpy(gpa, inGPA);
+  inName = new char[15];
+  strcpy(name, inName);
 }
 
 const char* Student::getName(){
   return name;
 }
 
-float student::getGPA(){
+float Student::getGPA(){
   return gpa;
 }
 
