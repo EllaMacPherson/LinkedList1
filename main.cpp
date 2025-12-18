@@ -3,20 +3,22 @@
 #include "Node.h"
 #include "Student.h"
 
-//PRINTING AND ADDING WORKS!!!! make sure destructors work properly....
+//PRINTING AND ADDING WORKS!!!! test destructor for ONE ITEM and set head to NULL right after manually. also switching head to a NOT global variable
 
 using namespace std;
 
-void add(Student* student);
-void print(Node* next);
+void add(Node*& head, Student* student);
+void print(Node*& head, Node* next);
+void Delete(Node*& , Node* next, float GPA);
 
-Node* head = NULL;
+
 
 int main(){
 
   char input[10];
   bool go = true;
-  
+
+  Node* head = NULL;
 
   while (go == true){
     input[0] = '\0';
@@ -44,6 +46,13 @@ int main(){
     }
     if(strcmp(input, "PRINT") == 0){
       print(head);
+    }
+    if(strcmp(input, "DELETE") == 0){
+      cout<<"Enter GPA to delete"<<endl;
+      float inGPA = 0;
+      cin>>inGPA;
+      
+      Delete(head, inGPA);
     }
   }
     //need to define new student UP HERE!! dummy
@@ -75,7 +84,6 @@ void add(Student* student){
 
 
 }
-
 void print(Node* next){
   if(next == head){ //on first one print 
     cout<<"List: ";
@@ -88,4 +96,26 @@ void print(Node* next){
 
 }
 
+//only works for 1 unique #, currently testing that case.
+
+//ONLY NEED DELETION OF 1 ITEM IN LIST to prove destructors work
+void Delete(Node* next, float GPA){
+  //  Node* current = head;
+  if(next == head){
+    cout<<"Matches found: ";
+  }
+
+  if(next == NULL){
+    cout<<"No students currently in list"<<endl;
+    return;
+  }
+
+  if(next->getStudent()->getGPA() == GPA){
+    cout<<next->getStudent()->getName()<<" " <<endl;
+    delete next;
+    head == NULL;
+    return;
+  }
+  Delete(next->getNext(), GPA);
+}
 //test delete

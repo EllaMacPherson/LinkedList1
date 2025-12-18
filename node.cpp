@@ -22,8 +22,6 @@ void Node::setNext(Node* inNext){
 }
 
 Node::~Node(){
-  //delete student pointer
-  //delete nextNode pointer
+  //delete student pointer!
   delete student;
-  delete nextNode;
 }
