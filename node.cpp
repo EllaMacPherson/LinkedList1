@@ -6,6 +6,7 @@ using namespace std;
 //constructor, adds student to node
 Node::Node(Student* inStudent){
   student = inStudent;
+  nextNode = NULL; //when first creating
 }
 
 Student* Node::getStudent(){

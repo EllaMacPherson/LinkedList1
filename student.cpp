@@ -6,11 +6,11 @@
 //constructur
 Student::Student(float inGPA, char* inName){
   gpa = inGPA;
-  inName = new char[15];
+  name = new char[20];
   strcpy(name, inName);
 }
 
-const char* Student::getName(){
+char* Student::getName(){
   return name;
 }
 

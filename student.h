@@ -9,10 +9,10 @@ using namespace std;
 class Student{
  public:
   Student(float inGPA, char* inName);
-  const char* getName();
+  char* getName();
   float getGPA();
 
-  char name[15];
+  char* name;
   float gpa;
 
 
